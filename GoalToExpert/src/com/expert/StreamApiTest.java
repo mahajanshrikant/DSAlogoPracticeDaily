@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamApiTest {
 
@@ -46,8 +47,43 @@ public class StreamApiTest {
 	List<String> sortedString=  listOfString.stream().sorted(c).toList();
 	System.out.println(sortedString);
 	
+	List<Integer> numList=Arrays.asList(10,20,30,50,68);
+	Integer maxNum=numList.stream().max((a,b)->Integer.compare(a,b)).get();
+	System.out.println(maxNum);
 	
+	Integer minNum=numList.stream().min((a,b)->Integer.compare(a, b)).get();
+	System.out.println(minNum);
+	
+	//two ways 
+	numList.stream().forEach(i->System.out.println(i));
+		
+	numList.stream().forEach(System.out::println);
+	
+	//convert array to stream
+	Integer[] arr= {10,23,45,67,89};
+	Arrays.stream(arr).forEach(System.out::println);
+	
+	
+	//StreamOF();
+	
+	  Stream<?> item=Stream.of(8,9,7,"AA","bb");
+	item.forEach(System.out::println);
+	
+	//stream()
+	//filter()
+	//map()
+	//collect()
+	//count()
+	///sorted()
+	//sorted(Comparator())
+	//max()
+	//min()
+	//forEach()
+	//toArray()
+	//Stream.of(null);
 	}
+	
+	
 	
 	
 }
